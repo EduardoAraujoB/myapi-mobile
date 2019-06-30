@@ -9,7 +9,7 @@ export default createAppContainer(
     {
       tabBarOptions: {
         activeBackgroundColor: "#fc6963",
-        inactiveBackgroundColor: "#fc6963",
+        inactiveBackgroundColor: "#ff837e",
         activeTintColor: "#fff",
         inactiveTintColor: "#fff",
         labelStyle: {
