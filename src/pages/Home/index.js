@@ -27,7 +27,6 @@ class Home extends Component {
     const articles = await api.get("/articles");
     if (this._isMounted) {
       this.loading = false;
-      console.log(articles.data);
       this.setState({ articles: articles.data });
     }
   };
