@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { FlatList } from "react-native";
+import { FlatList, ActivityIndicator } from "react-native";
 
 import api from "../../services/api";
 import {
@@ -39,7 +39,7 @@ class Home extends Component {
     if (this.loading) {
       return (
         <Container>
-          <ArticleTitle>Carregando</ArticleTitle>
+          <ActivityIndicator size={80} color="#fc6963" />
         </Container>
       );
     } else {

@@ -1,7 +1,8 @@
 import React, { Component } from "react";
+import { ActivityIndicator } from "react-native";
 
 import Routes from "./routes";
-import { Container, ArticleTitle } from "./pages/Home/styles";
+import { Container } from "./pages/Home/styles";
 import { isAutenticated } from "./services/auth";
 
 class App extends Component {
@@ -25,7 +26,7 @@ class App extends Component {
     if (this.loading) {
       return (
         <Container>
-          <ArticleTitle>Carregando</ArticleTitle>
+          <ActivityIndicator size={80} color="#fc6963" />
         </Container>
       );
     } else {
