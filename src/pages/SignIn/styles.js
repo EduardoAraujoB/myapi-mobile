@@ -53,3 +53,19 @@ export const ButtonText = styled.Text`
   font-size: 15px;
   font-weight: bold;
 `;
+
+export const ErrorContainer = styled.View`
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+  width: 100%;
+  height: 40;
+  padding: 20px;
+  border: 1px solid #ff3333;
+  border-radius: 10px;
+`;
+export const ErrorMessage = styled.Text`
+  color: #ff3333;
+  font-size: 15px;
+  font-weight: bold;
+`;
