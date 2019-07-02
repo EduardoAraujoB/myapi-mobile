@@ -3,6 +3,7 @@ import { ActivityIndicator } from "react-native";
 
 import Routes from "./routes";
 import { Container } from "./pages/Home/styles";
+import SignIn from "./pages/SignIn";
 import { isAutenticated } from "./services/auth";
 
 class App extends Component {
@@ -17,7 +18,6 @@ class App extends Component {
   componentWillMount = async () => {
     this.loading = true;
     const response = await isAutenticated();
-    console.log(response);
     this.loading = false;
     this.setState({ isLogged: response });
   };
@@ -29,8 +29,11 @@ class App extends Component {
           <ActivityIndicator size={80} color="#fc6963" />
         </Container>
       );
-    } else {
+    }
+    if (this.state.isLogged) {
       return <Routes />;
+    } else {
+      return <SignIn />;
     }
   }
 }
