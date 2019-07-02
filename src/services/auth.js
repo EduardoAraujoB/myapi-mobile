@@ -6,9 +6,10 @@ export const isAutenticated = async () => {
   if (!token) {
     return false;
   } else {
+    const send = { token };
     const response = await axios.post(
       "https://test-of-myapi.herokuapp.com/token/validate",
-      token
+      send
     );
     if (response.data.token === "valid") {
       return true;
@@ -19,12 +20,12 @@ export const isAutenticated = async () => {
 };
 
 export const getToken = async () => {
-  const response = await AsyncStorage.getItem("token");
+  const response = await AsyncStorage.getItem("@MobileTest:token");
   return response;
 };
 
 export const login = async token => {
-  await AsyncStorage.setItem("@MobileTes:token", token);
+  await AsyncStorage.setItem("@MobileTest:token", token);
 };
 
 export const logout = async () => {

@@ -11,6 +11,8 @@ import {
   ErrorContainer,
   ErrorMessage
 } from "./styles";
+import api from "../../services/api";
+import { login } from "../../services/auth";
 
 class SignIn extends Component {
   constructor(props) {
@@ -23,8 +25,18 @@ class SignIn extends Component {
   }
 
   handleSubmit = async () => {
-    if (!this.state.email || this.state.password) {
+    if (!this.state.email || !this.state.password) {
       this.setState({ error: "Preencha todos os campos" });
+    } else {
+      const { email, password } = this.state;
+      const send = { email, password };
+      try {
+        const response = await api.post("/members/authenticate", send);
+        login(response.data.token);
+      } catch (err) {
+        console.log(err, send);
+        this.setState({ error: "Erro ao logar, email ou senha incorretos!" });
+      }
     }
   };
 
