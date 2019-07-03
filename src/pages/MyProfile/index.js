@@ -18,6 +18,7 @@ class MyProfile extends Component {
 
   handleLogout = async () => {
     await logout();
+    this.props.navigation.navigate("SignedOut");
   };
 
   render() {

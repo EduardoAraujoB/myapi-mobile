@@ -3,7 +3,6 @@ import { ActivityIndicator } from "react-native";
 
 import Routes from "./routes";
 import { Container } from "./pages/Home/styles";
-import SignIn from "./pages/SignIn";
 import { isAutenticated } from "./services/auth";
 
 class App extends Component {
@@ -29,11 +28,9 @@ class App extends Component {
           <ActivityIndicator size={80} color="#fc6963" />
         </Container>
       );
-    }
-    if (this.state.isLogged) {
-      return <Routes />;
     } else {
-      return <SignIn />;
+      const Layout = Routes(this.state.isLogged);
+      return <Layout />;
     }
   }
 }

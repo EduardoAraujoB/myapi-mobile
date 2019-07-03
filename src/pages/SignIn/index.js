@@ -33,6 +33,7 @@ class SignIn extends Component {
       try {
         const response = await api.post("/members/authenticate", send);
         login(response.data.token);
+        this.props.navigation.navigate("SignedIn");
       } catch (err) {
         console.log(err, send);
         this.setState({ error: "Erro ao logar, email ou senha incorretos!" });
