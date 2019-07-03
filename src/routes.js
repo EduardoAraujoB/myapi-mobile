@@ -1,11 +1,11 @@
 import { createAppContainer, createBottomTabNavigator } from "react-navigation";
 
 import Home from "./pages/Home";
-import Articles from "./pages/Articles";
+import MyProfile from "./pages/MyProfile";
 
 export default createAppContainer(
   createBottomTabNavigator(
-    { Home, Articles },
+    { Home, MyProfile },
     {
       tabBarOptions: {
         activeBackgroundColor: "#fc6963",

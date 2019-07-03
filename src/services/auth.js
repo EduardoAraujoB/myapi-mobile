@@ -29,5 +29,5 @@ export const login = async token => {
 };
 
 export const logout = async () => {
-  await AsyncStorage.removeItem("token");
+  await AsyncStorage.removeItem("@MobileTest:token");
 };
