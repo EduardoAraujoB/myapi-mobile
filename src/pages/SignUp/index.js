@@ -7,17 +7,14 @@ import {
   Label,
   Input,
   FormButton,
-  Hr,
-  NewUserButton,
   ButtonText,
-  NewUserButtonText,
   ErrorContainer,
   ErrorMessage
 } from "./styles";
 import api from "../../services/api";
 import { login } from "../../services/auth";
 
-class SignIn extends Component {
+class SignUp extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -71,19 +68,12 @@ class SignIn extends Component {
             onChangeText={password => this.setState({ password })}
           />
           <FormButton activeOpacity={0.5} onPress={this.handleSubmit}>
-            <ButtonText>Entrar</ButtonText>
+            <ButtonText>Enviar</ButtonText>
           </FormButton>
-          <Hr />
-          <NewUserButton
-            activeOpacity={0.5}
-            onPress={() => this.props.navigation.navigate("SignUp")}
-          >
-            <NewUserButtonText>Cadastrar</NewUserButtonText>
-          </NewUserButton>
         </FormContainer>
       </Container>
     );
   }
 }
 
-export default SignIn;
+export default SignUp;
