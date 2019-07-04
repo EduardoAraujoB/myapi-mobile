@@ -69,3 +69,25 @@ export const ErrorMessage = styled.Text`
   font-size: 15px;
   font-weight: bold;
 `;
+
+export const Hr = styled.View`
+  margin-top: 15px;
+  width: 100%;
+  height: 1px;
+  background: #888888;
+`;
+
+export const NewUserButton = styled.TouchableOpacity`
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  width: 100%;
+  height: 20px;
+  border-radius: 15px;
+`;
+
+export const NewUserButtonText = styled.Text`
+  color: #888888;
+  font-size: 15px;
+  font-weight: bold;
+`;
