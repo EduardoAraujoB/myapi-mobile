@@ -15,6 +15,26 @@ export const ProfileContainer = styled.View`
   background: #fff;
 `;
 
+export const Title = styled.Text`
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #fc6963;
+`;
+
+export const SubTitle = styled.Text`
+  margin: 0 0 20px 5px;
+  align-self: flex-start;
+  font-size: 15px;
+  font-weight: bold;
+  color: #5e5e5e;
+`;
+
+export const TextContent = styled.Text`
+  font-size: 15px;
+  color: #888888;
+`;
+
 export const LogoutButton = styled.TouchableOpacity`
   justify-content: center;
   align-items: center;
