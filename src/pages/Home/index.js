@@ -52,7 +52,14 @@ class Home extends Component {
               <ArticleContainer>
                 <ArticleTitle>{item.title}</ArticleTitle>
                 <ArticleAuthor>Autor: {item.member.name}</ArticleAuthor>
-                <ArticleButton activeOpacity={0.8}>
+                <ArticleButton
+                  activeOpacity={0.8}
+                  onPress={() =>
+                    this.props.navigation.navigate("ArticleShow", {
+                      id: item._id
+                    })
+                  }
+                >
                   <Label>Acessar</Label>
                 </ArticleButton>
               </ArticleContainer>
