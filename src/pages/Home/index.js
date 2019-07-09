@@ -44,12 +44,21 @@ class Home extends Component {
       );
     } else {
       return (
-        <Container>
+        <Container
+          contentContainerStyle={{
+            justifyContent: "center",
+            alignItems: "center"
+          }}
+        >
           <FlatList
             data={this.state.articles}
             keyExtractor={article => article._id}
-            renderItem={({ item }) => (
-              <ArticleContainer>
+            renderItem={({ item, index }) => (
+              <ArticleContainer
+                lastItem={
+                  this.state.articles.length === index + 1 ? true : false
+                }
+              >
                 <ArticleTitle>{item.title}</ArticleTitle>
                 <ArticleAuthor>Autor: {item.member.name}</ArticleAuthor>
                 <ArticleButton

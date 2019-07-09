@@ -1,11 +1,9 @@
 import styled from "styled-components/native";
 
-export const Container = styled.View`
+export const Container = styled.ScrollView`
   flex: 1;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
-  padding: 30px 10px 30px;
+  padding: 30px 10px 0px;
   background: #eee;
   width: 100%;
   height: 100%;
@@ -20,6 +18,7 @@ export const ArticleContainer = styled.View`
   border-radius: 10px;
   margin-bottom: 20px;
   width: 300px;
+  ${props => (props.lastItem ? "margin-bottom: 70px" : null)}
 `;
 
 export const ArticleTitle = styled.Text`
