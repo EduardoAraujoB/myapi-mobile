@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { ActivityIndicator } from "react-native";
 
 import api from "../../../services/api";
+import TabBar from "../../../components/TabBar";
 import {
   Container,
   Article,
@@ -38,19 +39,22 @@ class ArticleShow extends Component {
       );
     } else {
       return (
-        <Container>
-          <Article>
-            <Title>{article.title}</Title>
-            <Content>{article.content}</Content>
-            <Author>{article.member.name}</Author>
-            <ReturnButton
-              activeOpacity={0.5}
-              onPress={() => this.props.navigation.navigate("SignedIn")}
-            >
-              <ReturnButtonText>Voltar</ReturnButtonText>
-            </ReturnButton>
-          </Article>
-        </Container>
+        <>
+          <TabBar />
+          <Container>
+            <Article>
+              <Title>{article.title}</Title>
+              <Content>{article.content}</Content>
+              <Author>{article.member.name}</Author>
+              <ReturnButton
+                activeOpacity={0.5}
+                onPress={() => this.props.navigation.navigate("SignedIn")}
+              >
+                <ReturnButtonText>Voltar</ReturnButtonText>
+              </ReturnButton>
+            </Article>
+          </Container>
+        </>
       );
     }
   }
