@@ -3,15 +3,7 @@ import { ActivityIndicator } from "react-native";
 
 import api from "../../../services/api";
 import TabBar from "../../../components/TabBar";
-import {
-  Container,
-  Article,
-  Title,
-  Content,
-  Author,
-  ReturnButton,
-  ReturnButtonText
-} from "./styles";
+import { Container, Article, Title, Content, Author } from "./styles";
 
 class ArticleShow extends Component {
   constructor(props) {
@@ -40,18 +32,12 @@ class ArticleShow extends Component {
     } else {
       return (
         <>
-          <TabBar />
+          <TabBar navigation={this.props.navigation} />
           <Container>
             <Article>
               <Title>{article.title}</Title>
               <Content>{article.content}</Content>
               <Author>{article.member.name}</Author>
-              <ReturnButton
-                activeOpacity={0.5}
-                onPress={() => this.props.navigation.navigate("SignedIn")}
-              >
-                <ReturnButtonText>Voltar</ReturnButtonText>
-              </ReturnButton>
             </Article>
           </Container>
         </>
