@@ -32,7 +32,10 @@ class ArticleShow extends Component {
     } else {
       return (
         <>
-          <TabBar navigation={this.props.navigation} />
+          <TabBar
+            navigation={this.props.navigation}
+            title="Visualizar Artigo"
+          />
           <Container>
             <Article>
               <Title>{article.title}</Title>

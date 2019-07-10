@@ -1,9 +1,9 @@
 import React from "react";
 import Icon from "react-native-vector-icons/Ionicons";
 
-import { Container, ReturnButton } from "./styles";
+import { Container, ReturnButton, Title, Space } from "./styles";
 
-const TabBar = ({ navigation }) => {
+const TabBar = ({ navigation, title }) => {
   return (
     <Container>
       <ReturnButton
@@ -12,6 +12,8 @@ const TabBar = ({ navigation }) => {
       >
         <Icon name="ios-arrow-back" size={40} color="#fff" />
       </ReturnButton>
+      <Title>{title}</Title>
+      <Space />
     </Container>
   );
 };
