@@ -3,7 +3,17 @@ import { ActivityIndicator } from "react-native";
 
 import api from "../../../services/api";
 import TabBar from "../../../components/TabBar";
-import { Container, Article, Title, Content, Author } from "./styles";
+import {
+  Container,
+  Article,
+  Title,
+  Content,
+  Author,
+  CommentsContainer,
+  Comment,
+  CommentAuthor,
+  CommentContent
+} from "./styles";
 
 class ArticleShow extends Component {
   constructor(props) {
@@ -42,6 +52,25 @@ class ArticleShow extends Component {
               <Content>{article.content}</Content>
               <Author>{article.member.name}</Author>
             </Article>
+            <CommentsContainer>
+              <Title>Comentários</Title>
+              <Comment>
+                <CommentAuthor>Pessoa Qualquer</CommentAuthor>
+                <CommentContent>Comentário Qualquer</CommentContent>
+              </Comment>
+              <Comment>
+                <CommentAuthor>Pessoa Qualquer</CommentAuthor>
+                <CommentContent>Comentário Qualquer</CommentContent>
+              </Comment>
+              <Comment>
+                <CommentAuthor>Pessoa Qualquer</CommentAuthor>
+                <CommentContent>Comentário Qualquer</CommentContent>
+              </Comment>
+              <Comment>
+                <CommentAuthor>Pessoa Qualquer</CommentAuthor>
+                <CommentContent>Comentário Qualquer</CommentContent>
+              </Comment>
+            </CommentsContainer>
           </Container>
         </>
       );

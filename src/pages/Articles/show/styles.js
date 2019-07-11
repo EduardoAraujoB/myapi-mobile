@@ -36,3 +36,31 @@ export const Author = styled.Text`
   color: #fc6963;
   margin-bottom: 15px;
 `;
+
+export const CommentsContainer = styled.View`
+  margin-top: 20px;
+  margin-bottom: 50px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  background: #fff;
+  border-radius: 15px;
+`;
+
+export const Comment = styled.View`
+  width: 100%;
+  padding: 5px;
+`;
+
+export const CommentAuthor = styled.Text`
+  font-size: 17px;
+  font-weight: bold;
+  color: #fc6963;
+`;
+
+export const CommentContent = styled.Text`
+  margin: 5px 0 0 10px;
+  font-size: 14px;
+  color: #777;
+`;
