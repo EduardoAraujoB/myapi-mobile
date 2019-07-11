@@ -12,7 +12,10 @@ import {
   CommentsContainer,
   Comment,
   CommentAuthor,
-  CommentContent
+  CommentContent,
+  NewCommentInput,
+  NewCommentSubmit,
+  NewCommentSubmitText
 } from "./styles";
 
 class ArticleShow extends Component {
@@ -76,6 +79,10 @@ class ArticleShow extends Component {
               ) : (
                 <CommentContent>Seja o primeiro a comentar!</CommentContent>
               )}
+              <NewCommentInput />
+              <NewCommentSubmit activeOpacity={0.5}>
+                <NewCommentSubmitText>Comentar</NewCommentSubmitText>
+              </NewCommentSubmit>
             </CommentsContainer>
           </Container>
         </>
