@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { ActivityIndicator } from "react-native";
+import { ActivityIndicator, FlatList } from "react-native";
 
 import api from "../../../services/api";
 import TabBar from "../../../components/TabBar";
@@ -20,19 +20,27 @@ class ArticleShow extends Component {
     super(props);
     this.state = {
       article: "",
+      comments: "",
       loading: true
     };
   }
 
   componentWillMount = async () => {
-    const response = await api.get(
+    const article = await api.get(
       `/articles/${this.props.navigation.getParam("id")}`
     );
-    this.setState({ article: response.data, loading: false });
+    const comments = await api.get(
+      `/comments/${this.props.navigation.getParam("id")}`
+    );
+    this.setState({
+      article: article.data,
+      comments: comments.data,
+      loading: false
+    });
   };
 
   render() {
-    const { article } = this.state;
+    const { article, comments } = this.state;
     if (this.state.loading) {
       return (
         <Container>
@@ -54,22 +62,20 @@ class ArticleShow extends Component {
             </Article>
             <CommentsContainer>
               <Title>Comentários</Title>
-              <Comment>
-                <CommentAuthor>Pessoa Qualquer</CommentAuthor>
-                <CommentContent>Comentário Qualquer</CommentContent>
-              </Comment>
-              <Comment>
-                <CommentAuthor>Pessoa Qualquer</CommentAuthor>
-                <CommentContent>Comentário Qualquer</CommentContent>
-              </Comment>
-              <Comment>
-                <CommentAuthor>Pessoa Qualquer</CommentAuthor>
-                <CommentContent>Comentário Qualquer</CommentContent>
-              </Comment>
-              <Comment>
-                <CommentAuthor>Pessoa Qualquer</CommentAuthor>
-                <CommentContent>Comentário Qualquer</CommentContent>
-              </Comment>
+              {!(comments.length === 0) ? (
+                <FlatList
+                  data={this.state.comments}
+                  keyExtractor={comment => comment._id}
+                  renderItem={({ item }) => (
+                    <Comment>
+                      <CommentAuthor>{item.member.name}</CommentAuthor>
+                      <CommentContent>{item.content}</CommentContent>
+                    </Comment>
+                  )}
+                />
+              ) : (
+                <CommentContent>Seja o primeiro a comentar!</CommentContent>
+              )}
             </CommentsContainer>
           </Container>
         </>
