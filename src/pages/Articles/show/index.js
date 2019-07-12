@@ -17,7 +17,9 @@ import {
   NewCommentSubmit,
   NewCommentSubmitText,
   ErrorContainer,
-  ErrorMessage
+  ErrorMessage,
+  CommentDeleteButton,
+  CommentDeleteButtonText
 } from "./styles";
 
 class ArticleShow extends Component {
@@ -26,6 +28,7 @@ class ArticleShow extends Component {
     this.state = {
       article: "",
       comments: "",
+      member: "",
       newComment: "",
       error: "",
       loading: true
@@ -39,9 +42,11 @@ class ArticleShow extends Component {
     const comments = await api.get(
       `/comments/${this.props.navigation.getParam("id")}`
     );
+    const member = await api.get("/member");
     this.setState({
       article: article.data,
       comments: comments.data,
+      member: member.data,
       loading: false
     });
   };
@@ -64,6 +69,16 @@ class ArticleShow extends Component {
           error: "Erro ao enviar o comentário, dessculpe pelo inconveniente"
         });
       }
+    }
+  };
+
+  handleCommentDelete = async Comment => {
+    try {
+      await api.delete(`/comments/${Comment}`);
+      this.props.navigation.navigate("SignedIn");
+    } catch (error) {
+      console.log(error);
+      this.setState({ error: "Erro ao apagar o comentário" });
     }
   };
 
@@ -98,6 +113,16 @@ class ArticleShow extends Component {
                     <Comment>
                       <CommentAuthor>{item.member.name}</CommentAuthor>
                       <CommentContent>{item.content}</CommentContent>
+                      {this.state.member.comment.indexOf(item._id) !== -1 ? (
+                        <CommentDeleteButton
+                          activeOpacity={0.5}
+                          onPress={() => this.handleCommentDelete(item._id)}
+                        >
+                          <CommentDeleteButtonText>
+                            Apagar
+                          </CommentDeleteButtonText>
+                        </CommentDeleteButton>
+                      ) : null}
                     </Comment>
                   )}
                 />

@@ -107,3 +107,19 @@ export const ErrorMessage = styled.Text`
   font-size: 15px;
   font-weight: bold;
 `;
+
+export const CommentDeleteButton = styled.TouchableOpacity`
+  margin-left: 5px;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 25px;
+  border-radius: 8px;
+  background: #fc6963;
+`;
+
+export const CommentDeleteButtonText = styled.Text`
+  color: #fff;
+  font-weight: bold;
+  font-size: 10px;
+`;
