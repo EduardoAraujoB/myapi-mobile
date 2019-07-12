@@ -15,7 +15,9 @@ import {
   CommentContent,
   NewCommentInput,
   NewCommentSubmit,
-  NewCommentSubmitText
+  NewCommentSubmitText,
+  ErrorContainer,
+  ErrorMessage
 } from "./styles";
 
 class ArticleShow extends Component {
@@ -24,6 +26,8 @@ class ArticleShow extends Component {
     this.state = {
       article: "",
       comments: "",
+      newComment: "",
+      error: "",
       loading: true
     };
   }
@@ -40,6 +44,27 @@ class ArticleShow extends Component {
       comments: comments.data,
       loading: false
     });
+  };
+
+  handleSubmit = async () => {
+    const { newComment } = this.state;
+    if (!newComment) {
+      this.setState({ error: "Você não pode enviar um comentário vazio =D" });
+    } else {
+      const send = {
+        content: newComment,
+        article: this.props.navigation.getParam("id")
+      };
+      try {
+        await api.post("/comments", send);
+        this.props.navigation.navigate("SignedIn");
+      } catch (error) {
+        console.log(error);
+        this.setState({
+          error: "Erro ao enviar o comentário, dessculpe pelo inconveniente"
+        });
+      }
+    }
   };
 
   render() {
@@ -79,8 +104,15 @@ class ArticleShow extends Component {
               ) : (
                 <CommentContent>Seja o primeiro a comentar!</CommentContent>
               )}
-              <NewCommentInput />
-              <NewCommentSubmit activeOpacity={0.5}>
+              {!!this.state.error && (
+                <ErrorContainer>
+                  <ErrorMessage>{this.state.error}</ErrorMessage>
+                </ErrorContainer>
+              )}
+              <NewCommentInput
+                onChangeText={newComment => this.setState({ newComment })}
+              />
+              <NewCommentSubmit activeOpacity={0.5} onPress={this.handleSubmit}>
                 <NewCommentSubmitText>Comentar</NewCommentSubmitText>
               </NewCommentSubmit>
             </CommentsContainer>
