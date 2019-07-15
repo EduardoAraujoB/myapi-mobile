@@ -9,6 +9,7 @@ import Home from "./pages/Home";
 import MyProfile from "./pages/MyProfile";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
+import ArticleCreate from "./pages/Articles/create";
 import ArticleShow from "./pages/Articles/show";
 
 export const SignedOut = createDrawerNavigator(
@@ -68,7 +69,7 @@ export const SignedIn = createBottomTabNavigator(
 const Routes = auth => {
   return createAppContainer(
     createSwitchNavigator(
-      { SignedIn, SignedOut, ArticleShow },
+      { SignedIn, SignedOut, ArticleCreate, ArticleShow },
       { initialRouteName: auth ? "SignedIn" : "SignedOut" }
     )
   );

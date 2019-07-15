@@ -9,6 +9,24 @@ export const Container = styled.ScrollView`
   height: 100%;
 `;
 
+export const ArticleCreateButton = styled.TouchableOpacity`
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  height: 40px;
+  width: 175px;
+  background: #fc6963;
+  border-radius: 10px;
+  margin-bottom: 70px;
+`;
+
+export const Title = styled.Text`
+  margin-bottom: 20px;
+  font-size: 25px;
+  font-weight: bold;
+  color: #fc6963;
+`;
+
 export const ArticleContainer = styled.View`
   background: white;
   justify-content: center;
@@ -18,7 +36,6 @@ export const ArticleContainer = styled.View`
   border-radius: 10px;
   margin-bottom: 20px;
   width: 300px;
-  ${props => (props.lastItem ? "margin-bottom: 70px" : null)}
 `;
 
 export const ArticleTitle = styled.Text`
