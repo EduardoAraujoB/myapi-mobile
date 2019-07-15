@@ -22,6 +22,14 @@ export const Title = styled.Text`
   color: #fc6963;
 `;
 
+export const SubTitle = styled.Text`
+  margin: 0 0 5px 10px;
+  font-size: 15px;
+  font-weight: bold;
+  color: #fc6963;
+  align-self: flex-start;
+`;
+
 export const Content = styled.Text`
   align-self: flex-start;
   font-size: 15px;

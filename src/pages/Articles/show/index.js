@@ -7,6 +7,7 @@ import {
   Container,
   Article,
   Title,
+  SubTitle,
   Content,
   Author,
   CommentsContainer,
@@ -83,7 +84,7 @@ class ArticleShow extends Component {
   };
 
   render() {
-    const { article, comments } = this.state;
+    const { article, comments, member } = this.state;
     if (this.state.loading) {
       return (
         <Container>
@@ -102,6 +103,9 @@ class ArticleShow extends Component {
               <Title>{article.title}</Title>
               <Content>{article.content}</Content>
               <Author>{article.member.name}</Author>
+              {member._id === article.member._id ? (
+                <SubTitle>Voce é o autor desse artigo</SubTitle>
+              ) : null}
             </Article>
             <CommentsContainer>
               <Title>Comentários</Title>
@@ -113,7 +117,7 @@ class ArticleShow extends Component {
                     <Comment>
                       <CommentAuthor>{item.member.name}</CommentAuthor>
                       <CommentContent>{item.content}</CommentContent>
-                      {this.state.member.comment.indexOf(item._id) !== -1 ? (
+                      {member.comment.indexOf(item._id) !== -1 ? (
                         <CommentDeleteButton
                           activeOpacity={0.5}
                           onPress={() => this.handleCommentDelete(item._id)}
