@@ -4,7 +4,6 @@ import { FlatList, ActivityIndicator } from "react-native";
 import api from "../../services/api";
 import {
   Container,
-  Title,
   ArticleCreateButton,
   ArticleContainer,
   ArticleTitle,
@@ -42,7 +41,6 @@ class Home extends Component {
             alignItems: "center"
           }}
         >
-          <Title>Artigos</Title>
           <FlatList
             data={this.state.articles}
             keyExtractor={article => article._id}
