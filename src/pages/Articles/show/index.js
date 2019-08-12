@@ -7,7 +7,9 @@ import {
   Container,
   Article,
   Title,
-  SubTitle,
+  ActionsContainer,
+  ActionButton,
+  ActionButtonText,
   Content,
   Author,
   CommentsContainer,
@@ -104,7 +106,14 @@ class ArticleShow extends Component {
               <Content>{article.content}</Content>
               <Author>{article.member.name}</Author>
               {member._id === article.member._id ? (
-                <SubTitle>Voce é o autor desse artigo</SubTitle>
+                <ActionsContainer>
+                  <ActionButton activeOpacity={0.5}>
+                    <ActionButtonText>Editar</ActionButtonText>
+                  </ActionButton>
+                  <ActionButton activeOpacity={0.5}>
+                    <ActionButtonText>Apagar</ActionButtonText>
+                  </ActionButton>
+                </ActionsContainer>
               ) : null}
             </Article>
             <CommentsContainer>

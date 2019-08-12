@@ -22,12 +22,26 @@ export const Title = styled.Text`
   color: #fc6963;
 `;
 
-export const SubTitle = styled.Text`
-  margin: 0 0 5px 10px;
-  font-size: 15px;
+export const ActionsContainer = styled.View`
+  background: transparent;
+  width: 100%;
+  height: auto;
+  flex-direction: row;
+`;
+
+export const ActionButton = styled.TouchableOpacity`
+  margin-right: 5px;
+  background: #fc6963;
+  justify-content: center;
+  align-items: center;
+  width: 65px;
+  height: 35px;
+  border-radius: 10px;
+`;
+export const ActionButtonText = styled.Text`
+  color: #fff;
   font-weight: bold;
-  color: #fc6963;
-  align-self: flex-start;
+  font-size: 14px;
 `;
 
 export const Content = styled.Text`
