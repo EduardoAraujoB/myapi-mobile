@@ -85,6 +85,17 @@ class ArticleShow extends Component {
     }
   };
 
+  handleArticleDelete = async () => {
+    if (this.state.member._id === this.state.article.member._id) {
+      try {
+        await api.delete(`/articles/${this.state.article._id}`);
+        this.props.navigation.navigate("SignedIn");
+      } catch (error) {
+        this.setState({ error: "Erro ao apgar" });
+      }
+    }
+  };
+
   render() {
     const { article, comments, member } = this.state;
     if (this.state.loading) {
@@ -110,7 +121,10 @@ class ArticleShow extends Component {
                   <ActionButton activeOpacity={0.5}>
                     <ActionButtonText>Editar</ActionButtonText>
                   </ActionButton>
-                  <ActionButton activeOpacity={0.5}>
+                  <ActionButton
+                    activeOpacity={0.5}
+                    onPress={this.handleArticleDelete}
+                  >
                     <ActionButtonText>Apagar</ActionButtonText>
                   </ActionButton>
                 </ActionsContainer>
