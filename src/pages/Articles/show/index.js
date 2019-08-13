@@ -119,7 +119,16 @@ class ArticleShow extends Component {
               {member._id === article.member._id ? (
                 <ActionsContainer>
                   <ActionButton activeOpacity={0.5}>
-                    <ActionButtonText>Editar</ActionButtonText>
+                    <ActionButtonText
+                      activeOpacity={0.5}
+                      onPress={() =>
+                        this.props.navigation.navigate("ArticleEdit", {
+                          id: article._id
+                        })
+                      }
+                    >
+                      Editar
+                    </ActionButtonText>
                   </ActionButton>
                   <ActionButton
                     activeOpacity={0.5}

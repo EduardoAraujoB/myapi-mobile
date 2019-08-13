@@ -20,6 +20,7 @@ export const Title = styled.Text`
   font-size: 20px;
   font-weight: bold;
   color: #fc6963;
+  align-self: center;
 `;
 
 export const ActionsContainer = styled.View`
@@ -63,7 +64,7 @@ export const CommentsContainer = styled.View`
   margin-top: 20px;
   margin-bottom: 50px;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   width: 100%;
   padding: 20px;
   background: #fff;
